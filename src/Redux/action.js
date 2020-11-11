@@ -1,8 +1,10 @@
 
-import { constant as c} from './constant';
+import { constant as c} from './const-get.constant';
 import axios from 'axios';
 export function getData(data){
+    console.log('===========>this is action')
     return (dispatch) =>{
+        console.log('===========>this is action2')
         dispatch ({
             type: c.LOADING
         })
@@ -14,10 +16,10 @@ export function getData(data){
             .then((res) => {
                     var obj = res.data;
                     var result = Object.keys(obj).map((key) => [obj[key]]);
-                    console.log(result);
+                    console.log("hasil=============>"+result);
                     dispatch ({
                         type: c.SUCCESS,
-                        payload: result.data
+                        payload: result
                     });
                 }
             )

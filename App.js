@@ -7,17 +7,18 @@ import LocalAPI from './src/MainApp';
 // import MainApp from './src/MainApp';
 
 import { Provider } from 'react-redux';
-import {Store} from './src/Redux/store'
+// import {Store} from './src/Redux/store'
+import rootReducer from './src/Redux/reducers'
+import { createStore } from 'redux';
 
+const store = createStore(rootReducer);
 
 const App = () => {
   return (
     
-    <Provider store={Store}>
-    <LocalAPI></LocalAPI>
-        // <Text>Hello World</Text>
-        // {/* <MainApp></MainApp> */}
-     </Provider>
+    <Provider store={store}>
+      <LocalAPI></LocalAPI>
+    </Provider>
   );
 };
 

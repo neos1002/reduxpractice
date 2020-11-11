@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View,Image , Button, TextInput, TouchableOpacity, Alert,FlatList} from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {getDataList} from './Redux/action'
 
 const Item = ({email, name,bidang,onPress,onDelete}) => {
@@ -30,9 +30,12 @@ const [users,setUsers] = useState([]);
 const [button,setButton] = useState("simpan");
 const [selectedUser,setSelectedUser]= useState({});
 const dispatch = useDispatch();
+const dataList = useSelector(state=> state.reducer.data);
 
 useEffect(()=>{
-    getData();
+    "ini useEffect =========>";
+    setUsers(dataList);
+    // getData();
 }, []);
 
 
@@ -101,6 +104,8 @@ const submit = ()=>{
     
 
     const getData =()=>{
+        console.log("==============> Get Data");
+        console.log(getDataList);
         dispatch(getDataList());
         // fetch('http://localhost:3000/users')
         // .then(response => response.json())
@@ -134,7 +139,7 @@ const submit = ()=>{
           <Item email={email} name={name} bidang={bidang} onPress={onPress} onDelete={onDelete} />
     )}
 
-console.log({users})
+// console.log({users})
     return (
         <View style ={styles.container}>
             <Text style = {styles.textTitle}>local API (JSON Server)</Text>
@@ -147,7 +152,7 @@ console.log({users})
             <FlatList
                 data={users}
                 renderItem={renderItem}
-                onRefresh={getData}
+                // onRefresh={getData}
                 // refreshing={loader}
                 keyExtractor = { (item) => item.email }
                 ListFooterComponent={<View style={{marginTop:10}}/>}

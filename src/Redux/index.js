@@ -1,4 +1,4 @@
-// import store from './store';
+import store from './store';
 
-// export * from './action';
-// export{store}
+export * from './action';
+export{store}

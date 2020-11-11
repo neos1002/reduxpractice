@@ -13,7 +13,7 @@ import { persistStore, persistReducer} from 'redux-persist';
 import thunk from 'redux-thunk';
 // import { devToolsEnhancer } from 'redux-devtools-extension';
 import rootReducer from './index';
-import reducer from './reducers/reducer'
+// import reducer from './reducers/reducer'
 
 const persistConfig = {
   key: 'root',
@@ -35,9 +35,9 @@ const store = createStore(
   // devToolsEnhancer()
 );
 
-let persistor = persistStore(store);
+// let persistor = persistStore(store);
 
 export default{
   store,
-  persistor,
+  // persistor,
 };

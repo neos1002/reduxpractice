@@ -2,24 +2,31 @@ const initialState = {
     data: [],
     isLoading: false
   };
-  import { constant as c} from '../constant';
+  import {SUCCESS,LOADING,ERROR} from '../const-get.constant';
   
-  const getDataReducer = (state = initialState, action) => {
+ function getDataReducer (state = initialState, action) {
+  console.log("=====>this is reducer")
+  console.log(state.data);
+  // console.log(action);
+  // console.log(c.SUCCESS);
     switch (action.type) {
-      case c.SUCCESS: {
+      case SUCCESS: {
+        console.log("=====>SUCCES")
         return {
           ...state,
           data: action.payload,
           isLoading: false
         }
       }
-      case c.LOADING:{
+      case LOADING:{
+        console.log("=====>LOADING")
         return {
           ...state,
           isLoading: true
         }
       }
-      case c.ERROR:
+      case ERROR:
+        console.log("=====ERROR")
         return {
           ...state,
           data: [],
