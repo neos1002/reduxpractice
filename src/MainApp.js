@@ -35,7 +35,7 @@ const dataList = useSelector(state=> state.reducer.data);
 useEffect(()=>{
     "ini useEffect =========>";
     setUsers(dataList);
-    // getData();
+    getData();
 }, []);
 
 

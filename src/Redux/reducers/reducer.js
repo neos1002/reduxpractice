@@ -6,7 +6,7 @@ const initialState = {
   
  function getDataReducer (state = initialState, action) {
   console.log("=====>this is reducer")
-  console.log(state.data);
+  // console.log(state.data);
   // console.log(action);
   // console.log(c.SUCCESS);
     switch (action.type) {

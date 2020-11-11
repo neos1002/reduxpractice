@@ -16,7 +16,7 @@ export function getData(data){
             .then((res) => {
                     var obj = res.data;
                     var result = Object.keys(obj).map((key) => [obj[key]]);
-                    console.log("hasil=============>"+result);
+                    console.log("hasil=============>",result);
                     dispatch ({
                         type: c.SUCCESS,
                         payload: result
